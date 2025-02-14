@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情人节快乐</title>
+    <style>
+        /* 设置全屏背景 */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            animation: gradient 5s ease infinite;
+        }
+
+        /* 页面中的文字样式 */
+        h1 {
+            font-size: 5em;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            margin-top: 20%;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8);
+            animation: floatText 10s ease-in-out infinite;
+        }
+
+        /* 渐变背景动画 */
+        @keyframes gradient {
+            0% {
+                background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            }
+            50% {
+                background: linear-gradient(45deg, #6a11cb, #2575fc);
+            }
+            100% {
+                background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            }
+        }
+
+        /* 文字的浮动效果 */
+        @keyframes floatText {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-30px);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* 浮动的圆形装饰 */
+        .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: moveCircle 12s ease-in-out infinite;
+        }
+
+        /* 圆形的随机运动效果 */
+        @keyframes moveCircle {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            25% {
+                transform: translate(-60%, -40%) scale(1.2);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            75% {
+                transform: translate(20%, 10%) scale(1.1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        /* 随机颜色变化的圆形 */
+        .color-change {
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            width: 120px;
+            height: 120px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            opacity: 0.55   ;
+            animation: colorChange 8s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0% {
+                background-color: #ff69b4;
+            }
+            50% {
+                background-color: #7b68ee;
+            }
+            100% {
+                background-color: #ff6347;
+            }
+        }
+
+        /* 增加一个持续变换的星星效果 */
+        .star {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: starAnimation 1s infinite;
+        }
+
+        /* 星星的闪烁效果 */
+        @keyframes starAnimation {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+
+        /* 粒子效果 */
+        .particle {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: particleAnimation 2s infinite ease-in-out;
+        }
+
+        /* 粒子的动画效果 */
+        @keyframes particleAnimation {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(0.7);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translateY(-150px) scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(0) scale(0.7);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>❤刘蕊❤</h1>
+    <h1>I LOVE U</h1>
+
+    <!-- 浮动圆形装饰 -->
+    <div class="circle"></div>
+
+    <!-- 随机颜色变化的圆形 -->
+    <div class="color-change"></div>
+
+    <!-- 动态星星效果 -->
+    <script>
+        function createStars() {
+            for (let i = 0; i < 50; i++) {
+                let star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                document.body.appendChild(star);
+            }
+        }
+
+        function createParticles() {
+            for (let i = 0; i < 30; i++) {
+                let particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDuration = `${Math.random() * 2 + 2}s`; // 随机粒子时间
+                document.body.appendChild(particle);
+            }
+        }
+
+        createStars();
+        createParticles();
+    </script>
+
+</body>
+</html>
